@@ -5,7 +5,7 @@ import { useState } from "react";
 import styled from 'styled-components'
 import MovieComponent from "./components/MovieComponent"
 import MovieInfoComponent from "./components/MovieInfoComponent"
-const API_KEY = 'API_KEY';
+const API_KEY = 'OMDB_API';
 const Container = styled.div`
 dsplay: flex;
 flex-direction: column;
@@ -80,6 +80,7 @@ function App() {
   const [timeoutId, updateTimeoutId] = useState([]);
   const [movieList, updateMovieList] = useState();
   const [selectedMovie, onMovieSelect] = useState();
+  
 
   const fetchData = async (searchString) =>{
     const response = await axios.get(
@@ -96,11 +97,10 @@ function App() {
   };
   return (
     <Container>
-      {/* {movieInfo?<> */}
         <Header>
         <AppName>
           <MovieImage src="/play-icon.png"/>
-          MyFlix</AppName>
+          ShowTimesSaga</AppName>
           <SearchBox>
             <SearchIcon src="search-icon.png"/>
             <SearchInput placeholder='Search' 

@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-const API_KEY = 'API_KEY';
+const API_KEY = 'OMDB_API';
+import YouTubeComponent from './YoutubeComponent';
 
 const Container = styled.div`
 display: flex;
@@ -55,11 +56,29 @@ padding: 8px;
 boder-radius: 70%;
 cursor: pointer;
 opacity: 0.8;
-
 `;
+
+const AppContainer = styled.div`
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+`;
+
+const MovieList = styled.ul`
+  list-style: none;
+  padding: 0;
+`;
+
+const MovieItem = styled.li`
+  margin: 10px 0;
+  cursor: pointer;
+  color:Red;
+`;
+
 
 const MovieInfoComponent = (props) => {
     const  [movieInfo, setMovieInfo] = useState();
+    const [selectedMovieTitle, setSelectedMovieTitle] = useState(null);
 
     //const {Title, Year, imdbID, Type, Poster} = props.movie;
     const { selectedMovie } = props;
@@ -68,6 +87,15 @@ const MovieInfoComponent = (props) => {
         .get(`https://www.omdbapi.com/?i=${selectedMovie}&apikey=${API_KEY}`)
         .then((response)=> setMovieInfo(response.data));
     },[selectedMovie]);
+
+    const handleMovieClick = movieTitle => {
+        setSelectedMovieTitle(movieTitle);
+      };
+    
+      const handleClosePopup = () => {
+        setSelectedMovieTitle(null);
+      };
+    
 
     return (
     <Container>
@@ -101,6 +129,17 @@ const MovieInfoComponent = (props) => {
             <MovieInfo>
                 Plot: <span>{movieInfo?.Plot}</span>
             </MovieInfo>
+
+<AppContainer>
+      <MovieList>
+        <MovieItem onClick={() => handleMovieClick('Movie 2')}>Click here for Youtube Results</MovieItem>
+      </MovieList>
+
+      {selectedMovieTitle && (
+        <YouTubeComponent movieTitle={movieInfo?.Title} onClose={handleClosePopup} />
+      )}
+    </AppContainer>
+
         </InfoColumn>
         <Close onClick ={() => props.onMovieSelect()}>X</Close>
         </>:"Loading..."}
