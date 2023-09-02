@@ -29,7 +29,7 @@ const YouTubeComponent = ({ movieTitle, onClose }) => {
 
   useEffect(() => {
     // Fetch YouTube results using the YouTube API
-    const API_KEY = 'YOUTUBE_API';
+    const API_KEY = 'AIzaSyA0wJjWvroK9nqzLyF9dshHoJv3cdkX2Hs';
     const API_URL = 'https://www.googleapis.com/youtube/v3/search';
 
     axios.get(API_URL, {

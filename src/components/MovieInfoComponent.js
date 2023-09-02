@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-const API_KEY = 'OMDB_API';
+const API_KEY = '86ea6685';
 import YouTubeComponent from './YoutubeComponent';
 
 const Container = styled.div`
