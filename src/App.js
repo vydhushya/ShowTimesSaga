@@ -5,7 +5,7 @@ import { useState } from "react";
 import styled from 'styled-components'
 import MovieComponent from "./components/MovieComponent"
 import MovieInfoComponent from "./components/MovieInfoComponent"
-const API_KEY = '86ea6685';
+const API_KEY = process.env.REACT_APP_O_API_KEY;
 const Container = styled.div`
 dsplay: flex;
 flex-direction: column;

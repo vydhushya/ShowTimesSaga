@@ -1,4 +1,5 @@
 import React, { useState, useEffect , useRef} from 'react';
+
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -29,7 +30,7 @@ const YouTubeComponent = ({ movieTitle, onClose }) => {
 
   useEffect(() => {
     // Fetch YouTube results using the YouTube API
-    const API_KEY = 'AIzaSyA0wJjWvroK9nqzLyF9dshHoJv3cdkX2Hs';
+    const API_KEY = process.env.REACT_APP_Y_API_KEY;
     const API_URL = 'https://www.googleapis.com/youtube/v3/search';
 
     axios.get(API_URL, {
