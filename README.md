@@ -1,13 +1,18 @@
 <h1 align="center">ShowTimesSaga</h1>
-<img align="center src="/public/OpenPage.png" alt="Dashboard">
+
+![Screenshot (423)](https://github.com/user-attachments/assets/b2975a18-571f-49c9-9f6f-a143de4c38c0)
 
 <h4>ShowTimesSaga is a web application that provides a user-friendly interface for searching and discovering movies. Users can search for movies by title or keyword, and the app displays detailed information including plot summaries, ratings, and release dates. Additionally, ShowTimesSaga integrates with the YouTube API to offer real-time movie-related video suggestions, enhancing the overall user experience.</h4>
 
 <h3>Search any movie</h3>
-<img align="center src="/public/onSearchImg.png" alt="Movie_Search">
+
+![Screenshot (424)](https://github.com/user-attachments/assets/f19e7407-2cb0-46c2-b2a3-f2383f8a6adc)
+
 
 <h3>Movie Info</h3>
-<img align="center src="/public/MovieInfo.png" alt="Movie_Info">
+
+![Screenshot (425)](https://github.com/user-attachments/assets/b52b9734-636d-41ea-8bb6-5f2ba65a07d4)
 
 <h3>Top 5 Youtube Results</h3>
-<img align="center src="/public/yt_res.png" alt="Youtube_Results">
+
+![Screenshot (426)](https://github.com/user-attachments/assets/50e9b705-9db0-40f0-bbdd-3f6b19938869)
