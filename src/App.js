@@ -1,5 +1,10 @@
 // import logo from './logo.svg';
 // import './App.css';
+import { 
+  BrowserRouter as Router, 
+  Routes, 
+  Route 
+} from "react-router-dom"; 
 import axios from "axios";
 import { useState } from "react";
 import styled from 'styled-components'
@@ -15,11 +20,12 @@ display:flex;
 flex-direction: row;
 background-color: black;
 color: red;
-padding: 15px;
+padding: 20px;
 font-size:25px;
 box-shadow: 0 3px 6px 0 #555;
 justify-content: space-between;
 algn-items: center;
+
 `;
 
 const AppName = styled.div`
@@ -28,6 +34,7 @@ flex-direction: row;
 align-items: center;
 font-family: 'Black Ops One', cursive;
 `;
+
 
 const SearchBox = styled.div`
 display: flex;
@@ -38,6 +45,8 @@ border-radius: 6px;
 margin-left:20px;
 width:50%;
 align-items: center;
+border: 3px black;
+
 `;
 
 const MovieImage = styled.img`
@@ -66,6 +75,21 @@ flex-direction: row;
 flex-wrap: wrap;
 padding: 30px;
 justify-content: space-evenly;
+`;
+
+//PLaceHolder
+const pH = styled.div`
+align-items:center;
+`;
+
+const Gemini = styled.div`
+display: flex;
+flex-direction: row;
+align-items: center;
+whiteSpace: 'pre-wrap'
+text-align:center;
+font-family: 'Black Ops One', cursive;
+
 `;
 
 const PlaceHolder = styled.img`
@@ -121,8 +145,21 @@ function App() {
              movie={movie}
              onMovieSelect = {onMovieSelect}
              />
+         
             ):(
-              <PlaceHolder src= "play-icon.png"/>
+              
+              <pH>
+                <PlaceHolder src= "play-icon.png"/>
+                {/* <Gemini>
+                  Having a hardtime deciding on what movie to watch?
+                </Gemini><br></br><br></br>
+                <Gemini>
+                    Try our Movie expert 
+
+                </Gemini> */}
+              </pH>
+
+              
             )
           }
           
