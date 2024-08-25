@@ -119,6 +119,11 @@ function App() {
     const timeout = setTimeout(() => fetchData(event.target.value), 500);
     updateTimeoutId(timeout);
   };
+
+  const onGemClick = (event) => {
+
+  }
+
   return (
     <Container>
         <Header>
@@ -150,13 +155,13 @@ function App() {
               
               <pH>
                 <PlaceHolder src= "play-icon.png"/>
-                {/* <Gemini>
-                  Having a hardtime deciding on what movie to watch?
+                 <Gemini>
+                  {/* Having a hardtime deciding on what movie to watch?
                 </Gemini><br></br><br></br>
                 <Gemini>
-                    Try our Movie expert 
+                    Try our Movie expert  */}
 
-                </Gemini> */}
+                </Gemini>
               </pH>
 
               

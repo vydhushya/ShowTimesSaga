@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 const API_KEY = process.env.REACT_APP_O_API_KEY;
 import YouTubeComponent from './YoutubeComponent';
+import GenAI_Component from './GenAI_Component';
+
 
 const Container = styled.div`
 display: flex;
@@ -79,6 +81,8 @@ const MovieItem = styled.li`
 const MovieInfoComponent = (props) => {
     const  [movieInfo, setMovieInfo] = useState();
     const [selectedMovieTitle, setSelectedMovieTitle] = useState(null);
+    const [showYoutubePopup, setShowYoutubePopup] = useState(false);
+  const [showGenAIPopup, setShowGenAIPopup] = useState(false);
 
     //const {Title, Year, imdbID, Type, Poster} = props.movie;
     const { selectedMovie } = props;
@@ -90,6 +94,12 @@ const MovieInfoComponent = (props) => {
 
     const handleMovieClick = movieTitle => {
         setSelectedMovieTitle(movieTitle);
+        setShowYoutubePopup(true);
+      };
+
+      const handleRecClick = movieTitle => {
+        setSelectedMovieTitle(movieTitle);
+        setShowGenAIPopup(true);
       };
     
       const handleClosePopup = () => {
@@ -130,13 +140,19 @@ const MovieInfoComponent = (props) => {
                 Plot: <span>{movieInfo?.Plot}</span>
             </MovieInfo>
 
-<AppContainer>
+    <AppContainer>
       <MovieList>
         <MovieItem onClick={() => handleMovieClick('Movie 2')}>Click here for Youtube Results</MovieItem>
       </MovieList>
+      <MovieList>
+        <MovieItem onClick={() => handleRecClick('Movie')}>Click here to get Movie Recomendations similar to "{movieInfo?.Title}"</MovieItem>
+      </MovieList>
 
-      {selectedMovieTitle && (
+      {showYoutubePopup && selectedMovieTitle && (
         <YouTubeComponent movieTitle={movieInfo?.Title} onClose={handleClosePopup} />
+      )}
+      {showGenAIPopup && selectedMovieTitle &&(
+        <GenAI_Component movieTitle={movieInfo?.Title} onClose={handleClosePopup} />
       )}
     </AppContainer>
 
